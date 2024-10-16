@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/1.png);
+    background-size: cover;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.806);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 330px;
+    border-width: 3px;
+    /* سمك الحدود */
+    border-style: inset;
+    /* نوع الحدود */
+    border-color: rgb(0, 0, 0);
+    /* لون الحدود */
+    text-align: center;
+    /* عرض ثابت */
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #000000;
+}
+
+input {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 1rem;
+    font-family: 'Cairo', sans-serif;
+    text-align: right;
+    resize: none;
+}
+
+button {
+    background-color: #ecd149;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Cairo', sans-serif;
+}
+
+button:hover {
+    background-color: #3bc644;
+}
+
+#result {
+    margin-top: 20px;
+    color: #000000;
+    text-align: center;
+    background-color: #07e51d6c;
+    border-radius: 20px;
+}
+
+.p {
+    font-size: 15px;
+}

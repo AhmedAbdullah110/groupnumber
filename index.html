@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>معرفة رقم المجموعة</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="css/Style.css">
+    </head>
+    <body>
+        <div class="login-container">
+            <h1>معرفة رقم المجموعة</h1>
+            <form id="lab-form">
+                <input type="text" id="student-code"
+                    placeholder="ادخل الكود الخاص بك" required>
+                <button type="submit" id="add-btn">بحث</button>
+            </form>
+
+            <p id="result"></p>
+            <br>
+            <p class="p">المعهد العالي للحاسبات ونظم المعلومات الادارية التجمع
+                الاول</p>
+        </div>
+
+        <script>
+        const labs = [
+            // بيانات مجموعة أ
+            { from: 202210001, to: 202210109, lab: 1, group: 'أ' },
+            { from: 202210111, to: 202210217, lab: 2, group: 'أ' },
+            { from: 202210218, to: 202210323, lab: 3, group: 'أ' },
+            { from: 202210324, to: 202210425, lab: 4, group: 'أ' },
+            { from: 202210426, to: 202210551, lab: 5, group: 'أ' },
+            { from: 202210553, to: 202210661, lab: 6, group: 'أ' },
+            { from: 202210663, to: 202210778, lab: 7, group: 'أ' },
+            { from: 202210779, to: 202210899, lab: 8, group: 'أ' },
+
+            // بيانات مجموعة ب
+            { from: 202210902, to: 202211027, lab: 1, group: 'ب' },
+            { from: 202211028, to: 202211143, lab: 2, group: 'ب' },
+            { from: 202211144, to: 202211259, lab: 3, group: 'ب' },
+            { from: 202211260, to: 202211398, lab: 4, group: 'ب' },
+            { from: 202211399, to: 202211517, lab: 5, group: 'ب' },
+            { from: 202211319, to: 202211657, lab: 6, group: 'ب' },
+            { from: 202211658, to: 202211776, lab: 7, group: 'ب' },
+            { from: 202211777, to: 202211899, lab: 8, group: 'ب' },
+
+            // بيانات مجموعة ج
+            { from: 202210011, to: 202210375, lab: 1, group: 'ج' },
+            { from: 202210377, to: 202210687, lab: 2, group: 'ج' },
+            { from: 202210690, to: 202210963, lab: 3, group: 'ج' },
+            { from: 202210368, to: 202211246, lab: 4, group: 'ج' },
+            { from: 202211248, to: 202211453, lab: 5, group: 'ج' },
+            { from: 202211455, to: 202211714, lab: 6, group: 'ج' },
+            { from: 202211715, to: 202211858, lab: 7, group: 'ج' },
+            { from: 202211895, to: 202211951, lab: 8, group: 'ج' }
+        ];
+
+        // التعامل مع نموذج البحث
+        document.getElementById("lab-form").onsubmit = function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+            
+            const studentCode = parseInt(document.getElementById("student-code").value);
+            
+            if (isNaN(studentCode)) {
+                document.getElementById("result").textContent = "يرجى إدخال رقم صالح.";
+                return;
+            }
+
+            // البحث عن معلومات المعمل بناءً على الكود المدخل
+            const labInfo = labs.find(lab => studentCode >= lab.from && studentCode <= lab.to);
+            
+            if (labInfo) {
+                document.getElementById("result").innerHTML = 
+                    `مجموعة المحاضرة: ${labInfo.group}<br>مجموعة المعمل: ${labInfo.lab}`;
+            } else {
+                document.getElementById("result").textContent = "لم يتم العثور على معمل لهذا الكود.";
+            }
+        };
+    </script>
+    </body>
+</html>
